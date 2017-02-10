@@ -167,13 +167,20 @@ table {
 	width: 1170px;
 	margin: 0 auto;
 }
-.hello {
-	text-align: center;
-}
 .about-section, .portfolio-section {
+	position: absolute;
+    top: 50%;
+    left: 50%;
 	display: none;
 	opacity: 0;
-	margin-top: 100px;
+}
+.about-section {
+	margin-top: -137px;
+	margin-left: -570px;
+}
+.portfolio-section {
+	margin-top: -144px;
+    margin-left: -540px;
 }
 *{
   box-sizing: border-box;
@@ -256,9 +263,13 @@ a {
 }
 /*----------WELCOME PAGE----------*/
 .hello {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -25px;
+	margin-left: -54px;
 	text-align: center;
 	font-size: 50px;
-	margin-top: 20%;
 }
 /*----------NAVIGATION----------*/
 .navigation-container {
@@ -280,12 +291,12 @@ a {
 /*----------ABOUT PAGE----------*/
 	.about-section .about-left {
 		float: left;
-		width: 50%;
+		width: 40%;
 		margin-top: 30px;
 	}
 	.about-section .about-right {
 		float: left;
-		width: 40%;
+		width: 50%;
 		margin-top: 30px;
 	}
 .main-image {
@@ -422,10 +433,11 @@ a {
 	font-family: "aileron-ultralight";
 }
 .project-page {
-	position: relative;
+	position: absolute;
+	top: 50%;
+    margin-top: -153px;
 	display: none;
 	opacity: 0;
-	margin: 0 auto;
 	line-height: 1.3em;
 }
 	.project-page h2 {

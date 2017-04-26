@@ -168,19 +168,15 @@ table {
 	margin: 0 auto;
 }
 .about-section, .portfolio-section {
-	position: absolute;
-    top: 50%;
-    left: 50%;
+	position: relative;
 	display: none;
 	opacity: 0;
 }
 .about-section {
-	margin-top: -137px;
-	margin-left: -570px;
+	margin-top: 150px;
 }
 .portfolio-section {
-	margin-top: -144px;
-    margin-left: -540px;
+
 }
 *{
   box-sizing: border-box;
@@ -194,6 +190,9 @@ p {
 a {
 	text-decoration: none;
 	color: black;
+}
+body, html, .wrapper, .container {
+	height: 100%;
 }
 .back-button{
   position: absolute;
@@ -287,17 +286,16 @@ a {
 		display: inline-block;
 		cursor: pointer;
 	}
-
+.nav-item-clicked {
+	color: #0d8f85;
+}
 /*----------ABOUT PAGE----------*/
 	.about-section .about-left {
-		float: left;
-		width: 40%;
-		margin-top: 30px;
+		display: inline-block;
 	}
 	.about-section .about-right {
-		float: left;
-		width: 50%;
-		margin-top: 30px;
+		display: inline-block;
+		width: 600px;
 	}
 .main-image {
 	opacity: 0;
@@ -307,7 +305,7 @@ a {
 	height: 200px;
 	width: 200px;
 	border-radius: 100px;
-	margin: 0 auto;
+	margin-right: 60px;
 }
 .sub-image-1 {
 	background-image: url('images/hugin.jpg');
@@ -336,6 +334,7 @@ a {
 .about-right {
 	opacity: 0;
 	text-align: center;
+	margin-top: 30px;
 }
 	.about-right h3 {
 		font-size: 25px;
@@ -345,6 +344,9 @@ a {
 		font-size: 20px;
 		margin-top: 20px;
 	}
+		.about-right p:first-child {
+			margin-top: 0px;
+		}
 /*----------PORTFOLIO PAGE----------*/
 .portfolio-section {
 	text-align: center;
@@ -353,16 +355,17 @@ a {
 	display: inline-block;
 }
 .project-box {
+	display: inline-block;
 	position: relative;
 	opacity: 0;
-	float: left;
 	width: 250px;
 	height: 200px;
 	border: 1px solid black;
 	margin-right: 20px;
+	margin-top: 10px;
 	cursor: pointer;
 }
-	.project-box:last-of-type {
+	.projects-container:nth-child(3) {
 		margin-right: 0px;
 	}
 .project-overlay {
@@ -428,9 +431,12 @@ a {
 	margin-top: 75px;
 }
 .md-logo {
-	margin-top: 10px !important;
-	font-size: 30px;
+	position: absolute;
+	font-size: 25px;
 	font-family: "aileron-ultralight";
+	left: 50%;
+	margin-left: -86px;
+	top: 60%;
 }
 .project-page {
 	position: absolute;
@@ -458,6 +464,8 @@ a {
 	opacity: 0;
 	float: none;
 	margin-bottom: 50px;
+	margin-bottom: 30px;
+    margin-top: 20px;
 }
 .project-1-left, .project-1-right {
 
@@ -489,4 +497,67 @@ a {
 	background-image: url("images/healthcheckins-front.jpg");
 	height: 392px;
 	width: 550px;
+}
+.project-5-image-1 {
+	background-image: url("images/ronswoodworking-front.png");
+	height: 305px;
+	width: 550px;
+}
+
+/* ---------- RETINA QUERIES ---------- */
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1),
+only screen and (        min-device-pixel-ratio: 2),
+only screen and (                min-resolution: 192dpi),
+only screen and (                min-resolution: 2dppx) { 
+
+	
+}
+
+/* ---------- MEDIA QUERIES ---------- */ 
+
+@media (max-width: 1200px) {
+	.container {
+		width: 980px;
+	 }
+}
+@media (max-width: 980px) {
+  	.container {
+    	width: 768px;
+  	}
+
+}
+@media (max-width: 767px) {
+  	.container {
+	    box-sizing: border-box;
+	    width: 100%;
+	    padding: 0 15px;
+ 	}
+ 	.header-wrapper {
+ 		background-size: cover;
+		animation: none;
+ 	}
+ 	.main-title {
+ 		font-size: 35px;
+ 		margin-left: -153px;
+ 		margin-top: -12px;
+ 	}
+ 	.section-title {
+ 		font-size: 25px;
+ 	}
+ 	.section-icon-mobile {
+		display: inline-block !important;
+	}
+	.section-icon {
+		display: none !important;
+	}
+
+}
+@media (max-width: 480px) {
+	.container {
+		width: 100%;
+	    padding: 0 15px;
+	}
 }

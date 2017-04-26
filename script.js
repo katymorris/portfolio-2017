@@ -61,14 +61,16 @@ function openPortfolio() {
 		$('#project-2').delay(850).transition({'opacity': '1'}, {duration: 400, queue: true});
 		$('#project-3').delay(950).transition({'opacity': '1'}, {duration: 400, queue: true});
 		$('#project-4').delay(1050).transition({'opacity': '1'}, {duration: 400, queue: true});
-		$('.github-button').delay(1150).transition({'opacity': '1'}, {duration: 400, queue: true});
+		$('#project-5').delay(1150).transition({'opacity': '1'}, {duration: 400, queue: true});
+		$('.github-button').delay(1250).transition({'opacity': '1'}, {duration: 400, queue: true});
 	} else {
 		$('#portfolio-section').css('display', 'block').stop().transition({'opacity': '1'}, {duration: 300, queue: true}).addClass('active-section');
 		$('#project-1').delay(250).transition({'opacity': '1'}, {duration: 400, queue: true});
 		$('#project-2').delay(350).transition({'opacity': '1'}, {duration: 400, queue: true});
 		$('#project-3').delay(450).transition({'opacity': '1'}, {duration: 400, queue: true});
 		$('#project-4').delay(550).transition({'opacity': '1'}, {duration: 400, queue: true});
-		$('.github-button').delay(650).transition({'opacity': '1'}, {duration: 400, queue: true});
+		$('#project-5').delay(650).transition({'opacity': '1'}, {duration: 400, queue: true});
+		$('.github-button').delay(750).transition({'opacity': '1'}, {duration: 400, queue: true});
 	}
 }
 function closePortfolio() {
@@ -99,13 +101,27 @@ $(document).ready(function(){
 		$this = $(this);
 		var openProject = $('body').find('.open-project');
 		var projectsContainer = $('body').find('.projects-closed');
+		//if this click is the initial entrance to page
 		if (!$('.navigation-container').hasClass('nav-moved')) {
 			$('.navigation-container').stop().transition({'y': ($(window).height() / 2) - $('.navigation-container').height()}, {duration: 400, complete: function() {
-			$('.navigation-container').addClass('nav-moved').transition({scale: .5}, {duration: 300});
-			$($this).css('color', '#0d8f85').addClass('nav-item-clicked');
+				$('.navigation-container').addClass('nav-moved').transition({scale: .5}, {duration: 300});
+				$($this).addClass('nav-item-clicked');
 			}});
+		} else {
+
+			var previouslyClickedNavItem = $('body').find('.nav-item-clicked');
+			$(previouslyClickedNavItem).removeClass('nav-item-clicked').removeAttr('style');
+			$($this).addClass('nav-item-clicked');
+			$(openProject).removeClass('open-project');
+			//if this isn't the porfolio li, remove projects closed
+			if (!$($this).hasClass('portfolio')) {
+				$('.projects-container').removeClass('projects-closed');
+			} else {
+				$('.projects-container').removeAttr('style');
+			}
 		}
 		if (openProject.length > 0) {
+			
 			$(openProject).stop().transition({'opacity': '0'}, {duration: 300, complete: function() {
 				$(this).css('display', 'none');
 			}});
@@ -140,7 +156,6 @@ $(document).ready(function(){
 				}
 		}
 	});
-
 	/* ----- HOVER EVENTS ------ */
 	//icon box at top
 	$('body').on('mouseenter', '.icon-box', function() {
@@ -188,8 +203,10 @@ $(document).ready(function(){
 		$('body').find('.open-project').transition({'opacity': '0'}, {duration: 300, complete: function() {
 			$(this).css('display', 'none').removeClass('open-project');
 			$('.projects-container').css('display', 'inline-block').stop().transition({x: '0px', 'opacity': '1'}, {duration: 300});
+			$('.projects-container').removeClass('projects-closed');
 		}});
 	})
+	//click on a specific project
 	$('body').on('click', '.project-box', function() {
 		$this = $(this);
 		$('.projects-container').stop().transition({x: '-600px', 'opacity': '0'}, {duration: 400, complete: function() {
